@@ -7,12 +7,12 @@ Pada kondisi saat ini, pengawasan penggunaan listrik masih dilakukan oleh petuga
 
 ## 2. Arsitektur Sistem 
 Arsitektur sistem terdiri dari tiga lapisan utama, yaitu lapisan perangkat (device layer), lapisan jaringan (network layer), dan lapisan aplikasi (application layer).
-1.) Lapisan Perangkat (device layer)
-Pada lapisan perangkat, seluruh sensor (PIR HC-SR501, LDR, DHT22, MQ-135) terhubung langsung ke pin input ESP32 yang terpasang di dalam ruang kelas. PIR dipasang di pojok ruangan untuk cakupan deteksi kehadiran yang luas, LDR dipasang di dalam ruangan untuk memverifikasi status lampu, sedangkan DHT22 dan MQ-135 dipasang di posisi representatif untuk membaca kondisi udara ruangan. Output ESP32 terhubung ke modul relay untuk mengontrol lampu dan AC, serta ke pin PWM yang dihubungkan ke motor driver untuk mengatur kecepatan motor DC sebagai replika blower AC.
-2.) Lapisan Jaringan (network layer)
-Pada lapisan jaringan, ESP32 terhubung ke jaringan Wi-Fi kampus yang sudah tersedia. Data sensor dikirimkan secara berkala menggunakan protokol MQTT menuju broker MQTT yang berjalan di server ThingsBoard. MQTT dipilih karena protokol ini sangat ringan (low-bandwidth) dan dirancang khusus untuk perangkat IoT, menjadikannya pilihan ideal untuk sistem yang akan beroperasi di ratusan ruangan secara bersamaan.
-3.) Lapisan Aplikasi (application layer)
-Pada lapisan aplikasi, dashboard monitoring menerima dan menampilkan seluruh data sensor secara real-time melalui koneksi MQTT sehingga kondisi ruangan dapat dipantau langsung oleh admin DPTSI melalui browser. Dashboard menampilkan informasi status tiap ruang kelas, kondisi suhu dan kualitas udara, status pencahayaan otomatis, konsumsi energi simulasi, serta grafik historis sebagai bahan evaluasi penggunaan energi dan kenyamanan ruang belajar.
+     1.) Lapisan Perangkat (device layer)
+     Pada lapisan perangkat, seluruh sensor (PIR HC-SR501, LDR, DHT22, MQ-135) terhubung langsung ke pin input ESP32 yang terpasang di dalam ruang kelas. PIR dipasang di  pojok ruangan untuk cakupan deteksi kehadiran yang luas, LDR dipasang di dalam ruangan untuk memverifikasi status lampu, sedangkan DHT22 dan MQ-135 dipasang di posisi representatif untuk membaca kondisi udara ruangan. Output ESP32 terhubung ke modul relay untuk mengontrol lampu dan AC, serta ke pin PWM yang dihubungkan ke motor driver untuk mengatur kecepatan motor DC sebagai replika blower AC.
+     2.) Lapisan Jaringan (network layer)
+     Pada lapisan jaringan, ESP32 terhubung ke jaringan Wi-Fi kampus yang sudah tersedia. Data sensor dikirimkan secara berkala menggunakan protokol MQTT menuju broker MQTT yang berjalan di server ThingsBoard. MQTT dipilih karena protokol ini sangat ringan (low-bandwidth) dan dirancang khusus untuk perangkat IoT, menjadikannya pilihan ideal untuk sistem yang akan beroperasi di ratusan ruangan secara bersamaan.
+     3.) Lapisan Aplikasi (application layer)
+     Pada lapisan aplikasi, dashboard monitoring menerima dan menampilkan seluruh data sensor secara real-time melalui koneksi MQTT sehingga kondisi ruangan dapat dipantau langsung oleh admin DPTSI melalui browser. Dashboard menampilkan informasi status tiap ruang kelas, kondisi suhu dan kualitas udara, status pencahayaan otomatis, konsumsi energi simulasi, serta grafik historis sebagai bahan evaluasi penggunaan energi dan kenyamanan ruang belajar.
 
 ## 3. Alur Logika & Integrasi Perangkat (Data Flow)
 1. Lapisan Sensor (Data Acquisition)
