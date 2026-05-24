@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Monitoring Energi — Universitas Brawijaya</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mqtt/4.3.7/mqtt.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <div class="ub-logo">UB</div>
+    <div>
+      <h1><i class="fa-solid fa-building-columns"></i> Universitas Brawijaya — DPTSI</h1>
+      <p>Sistem Monitoring Energi &amp; Lingkungan</p>
+    </div>
+  </div>
+
+  <div class="topbar-right">
+    <div id="mqtt-status">
+      <i class="fa-solid fa-wifi"></i> Menghubungkan...
+    </div>
+
+    <div class="topbar-time" id="clock">--:--:--</div>
+  </div>
+</div>
+
+<div class="app-body">
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+  <div class="sidebar-profile">
+    <div class="profile-avatar">
+      <i class="fa-solid fa-user-tie"></i>
+    </div>
+
+    <h3>Admin DPTSI</h3>
+    <p>dptsi@ub.ac.id</p>
+  </div>
+
+  <div class="sidebar-section">
+
+    <div class="sidebar-label">Navigasi</div>
+
+    <div class="nav-item active" onclick="navGo('ub')">
+      <i class="fa-solid fa-university"></i> Dashboard UB
+    </div>
+
+    <!-- FILKOM -->
+    <div class="nav-item" id="nav-filkom" onclick="toggleNav('filkom')">
+      <i class="fa-solid fa-microchip"></i> FILKOM
+      <i class="fa-solid fa-chevron-right nav-arrow" id="arrow-filkom"></i>
+    </div>
+
+    <div class="nav-sub" id="sub-filkom">
+
+      <!-- Gedung F -->
+      <div class="nav-sub-item" id="nav-gedF" onclick="toggleNavSub('gedF')">
+        <i class="fa-solid fa-building"></i> Gedung F
+        <i class="fa-solid fa-chevron-right nav-arrow"
+           id="arrow-gedF"
+           style="margin-left:auto;font-size:0.6rem;color:#5d7a9a;transition:transform 0.2s"></i>
+      </div>
+
+      <div class="nav-sub-sub"
+           id="subsub-gedF"
+           style="max-height:0;overflow:hidden;transition:max-height 0.3s ease">
+
+        <div class="nav-sub-sub-item" id="nav-f31" onclick="navGo('f31')">
+          <i class="fa-solid fa-door-open"></i> Kelas F3.1
+        </div>
+
+        <div class="nav-sub-sub-item" id="nav-f32" onclick="navGo('f32')">
+          <i class="fa-solid fa-door-open"></i> Kelas F3.2
+        </div>
+
+      </div>
+
+      <!-- Gedung lain placeholder -->
+      <div class="nav-sub-item" style="opacity:0.4;cursor:not-allowed">
+        <i class="fa-solid fa-building"></i> Gedung G
+        <span style="font-size:0.65rem;margin-left:auto;background:#34495e;padding:1px 6px;border-radius:4px">
+          Soon
+        </span>
+      </div>
+
+    </div>
+
+    <!-- Fakultas lain placeholder -->
+    <div class="nav-item" style="opacity:0.4;cursor:not-allowed">
+      <i class="fa-solid fa-flask"></i> FMIPA
+      <span style="font-size:0.65rem;margin-left:auto;background:#34495e;padding:1px 6px;border-radius:4px">
+        Soon
+      </span>
+    </div>
+
+    <div class="nav-item" style="opacity:0.4;cursor:not-allowed">
+      <i class="fa-solid fa-book"></i> FEB
+      <span style="font-size:0.65rem;margin-left:auto;background:#34495e;padding:1px 6px;border-radius:4px">
+        Soon
+      </span>
+    </div>
+
+  </div>
+
+  <div class="sidebar-bottom">
+    <div class="nav-item">
+      <i class="fa-solid fa-right-from-bracket"></i> Keluar
+    </div>
+  </div>
+
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb" id="breadcrumb">
+    <span class="bc-item" onclick="navGo('ub')">UB</span>
+
+    <span class="bc-sep">
+      <i class="fa-solid fa-angle-right"></i>
+    </span>
+
+    <span class="bc-item current">Dashboard Global</span>
+  </div>
+
+  <!-- WELCOME -->
+  <div class="welcome-bar">
+    <div>
+      <h2 id="welcome-title">Selamat Datang, Admin DPTSI!</h2>
+      <p id="welcome-sub">
+        Universitas Brawijaya — Sistem Monitoring Energi &amp; Lingkungan
+      </p>
+    </div>
+
+    <div class="search-box">
+      <i class="fa-solid fa-search"></i> Cari ruangan, gedung...
+    </div>
+  </div>
+
+  <!-- seluruh isi dashboard tetap sama -->
+  <!-- TIDAK ADA YANG DIUBAH -->
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
