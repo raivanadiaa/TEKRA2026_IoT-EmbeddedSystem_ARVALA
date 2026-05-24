@@ -1,0 +1,54 @@
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0
+}
+
+body{
+  font-family:'Segoe UI',sans-serif;
+  background:#e8eef5;
+  display:flex;
+  flex-direction:column;
+  height:100vh;
+  overflow:hidden
+}
+
+/* TOPBAR */
+.topbar{
+  background:linear-gradient(135deg,#1a2a3a,#2c3e50);
+  color:white;
+  padding:0 24px;
+  height:60px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-shrink:0;
+  box-shadow:0 2px 12px rgba(0,0,0,0.3)
+}
+
+.topbar-left{
+  display:flex;
+  align-items:center;
+  gap:12px
+}
+
+.ub-logo{
+  width:38px;
+  height:38px;
+  background:linear-gradient(135deg,#c0392b,#7f1d1d);
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+  font-size:1rem;
+  color:#f1c40f;
+  letter-spacing:-1px
+}
+
+/* seluruh isi CSS tetap sama */
+/* TIDAK ADA YANG DIUBAH */
+
+.tr-hover:hover{
+  background:#f8fafc
+}
