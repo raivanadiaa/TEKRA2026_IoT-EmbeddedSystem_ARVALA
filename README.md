@@ -31,9 +31,9 @@ Pada lapisan aplikasi, dashboard monitoring menerima dan menampilkan seluruh dat
      -  Estimasi biaya listrik harian.
      -  Estimasi pengurangan emisi karbon.
  3. Transmisi Data (Network Gateway)
-    Langkah 1: ESP32 menyatukan seluruh data (Sensor, Status Aktuator, Hasil Kalkulasi Energi) ke dalam format JSON.
-    Langkah 2: Paket JSON dikirim secara real-time via Wi-Fi menggunakan protokol MQTT menuju broker EMQX.
-    Langkah 3: Broker EMQX meneruskan data tersebut ke Web Dashboard melalui protokol WebSocket.
+    - Langkah 1: ESP32 menyatukan seluruh data (Sensor, Status Aktuator, Hasil Kalkulasi Energi) ke dalam format JSON.
+    - Langkah 2: Paket JSON dikirim secara real-time via Wi-Fi menggunakan protokol MQTT menuju broker EMQX.
+    - Langkah 3: Broker EMQX meneruskan data tersebut ke Web Dashboard melalui protokol WebSocket.
 4. Lapisan Visualisasi & Interaksi (Application Layer)
    Monitoring Otomatis: Dasbor berbasis HTML, CSS, dan JavaScript menerima data via WebSocket dan memperbarui tampilan (grafik suhu, status lampu, kualitas udara, biaya operasional, jejak karbon) secara otomatis tanpa refresh halaman.
    Kendali Manual (Override Downlink): Admin DPTSI menekan tombol "Matikan Paksa" di dashboard.
